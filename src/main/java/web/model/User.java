@@ -1,12 +1,12 @@
 package web.model;
 
-public class Car {
+public class User {
     public String model;
     private String color;
     private int year;
 
 
-    public Car(String model, String color, int year) {
+    public User() {
         this.model = model;
         this.color = color;
         this.year = year;
