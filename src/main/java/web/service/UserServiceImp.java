@@ -1,4 +1,4 @@
-package web.service.imp;
+package web.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,7 +10,6 @@ import web.service.UserService;
 import java.util.List;
 
 @Service
-@Transactional
 public class UserServiceImp implements UserService {
 
     private UserRepository userRepository;
@@ -21,22 +20,25 @@ public class UserServiceImp implements UserService {
     }
 
     @Override
+    @Transactional
     public void addUser(User user) {
         userRepository.addUser(user);
     }
 
     @Override
-    public void deleteUser(Long id) {
+    @Transactional
+    public void deleteUser(int id) {
         userRepository.deleteUser(id);
     }
 
     @Override
+    @Transactional
     public void editUser(User user) {
         userRepository.editUser(user);
     }
 
     @Override
-    public User getUserById(Long id) {
+    public User getUserById(int id) {
         return userRepository.getUserById(id);
     }
 
@@ -45,3 +47,4 @@ public class UserServiceImp implements UserService {
         return userRepository.getAllUsers();
     }
 }
+
